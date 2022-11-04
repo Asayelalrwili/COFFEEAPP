@@ -8,12 +8,29 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State private var Includemilk: Bool = false
+    @State private var Iced: Bool = true
+    @State private var Sponeofsuger: Bool = false
+    @State var stepperValue: Int = 0
+    
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+            Text("coffee☕️")
+                .font(.title)
+                .multilineTextAlignment(.center)
+            Toggle(isOn: $Includemilk){
+                Text("Include milk🥛")
+            }
+            Toggle(isOn: $Iced){
+                Text("Iced🧊")
+            }
+            Toggle(isOn: $Sponeofsuger){
+                Text("Spone of suger")
+            }
+            Stepper("Quantity: \(stepperValue)" ,value: $stepperValue)
+            Button("Order") {
+                print("TR")
+            }
         }
         .padding()
     }
